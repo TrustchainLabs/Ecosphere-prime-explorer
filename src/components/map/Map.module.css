@@ -5,3 +5,48 @@
     width: 100%;
     height: 100%;
 }
+
+.popupContent {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.node {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.popupContentKeyIcon {
+    padding-right: 4px;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    white-space: nowrap;
+}
+
+.popupContentKey {
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    white-space: nowrap;
+}
+
+.popupContentValue {
+    padding-left: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    white-space: nowrap;
+}
