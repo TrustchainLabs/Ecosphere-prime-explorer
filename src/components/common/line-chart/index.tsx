@@ -24,14 +24,46 @@ export const LineChart = ({ data, title, xKey, yKey }: LineChartProps) => {
                         bottom: 4
                     }}
                 >
-                    <CartesianGrid strokeDasharray='3 3' />
-                    <XAxis dataKey={xKey} />
-                    <YAxis />
+                    <CartesianGrid
+                        stroke='rgba(120, 120, 120, 0.2)'
+                        strokeDasharray='0'
+                        vertical={false}
+                    />
+                    <XAxis
+                        dataKey={xKey}
+                        tickLine={false}
+                        axisLine={false}
+                        allowDataOverflow={true}
+                        tickMargin={12}
+                        tick={{
+                            fontSize: '12px'
+                        }}
+                    />
+                    <YAxis
+                        dataKey={yKey}
+                        tickLine={false}
+                        axisLine={false}
+                        tickMargin={12}
+                        tick={{
+                            fontSize: '12px'
+                        }}
+                    />
                     <Tooltip
                         wrapperClassName={styles.tooltip}
                     />
-                    <Legend />
-                    <Line type='monotone' dataKey={yKey} stroke='var(--primary-color)' />
+                    <Legend
+                        wrapperStyle={{
+                            top: '180px'
+                        }}
+                        formatter={value =>
+                            value.split(' ').map((v: string) => `${v[0].toUpperCase()}${v.slice(1).toLowerCase()}`)
+                        }
+                    />
+                    <Line
+                        type='monotone'
+                        dataKey={yKey}
+                        stroke='var(--primary-color)'
+                    />
                 </Chart>
             </ResponsiveContainer>
         </div>
