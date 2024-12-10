@@ -24,11 +24,10 @@
 .panel {
     box-sizing: border-box;
     margin: 0px;
-    padding: 20px;
-    height: calc(100vh - 32px);
     background: var(--secondary-color);
     transition: all 0.3s ease;
     pointer-events: all;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -39,11 +38,15 @@
 .panelOpen {
     width: 600px;
     visibility: visible;
+    padding: 20px;
+    height: calc(100vh - 32px);
 }
 
 .panelClose {
     width: 0px;
     visibility: hidden;
+    padding: 0px;
+    height: 0px;
 }
 
 .navIcon {
@@ -53,6 +56,7 @@
     color: var(--text-color);
     transition: all 0.3s ease;
     pointer-events: all;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
 }
 

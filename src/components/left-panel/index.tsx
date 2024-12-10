@@ -15,7 +15,11 @@ export const LeftPanel = () => {
     }
 
     return (
-        <SidePanel className={styles.panel} position='left'>
+        <SidePanel
+            className={styles.panel}
+            position='left'
+            style={{ left: '110px' }}
+        >
             <div className={styles.top}>
                 <div className={styles.title}>
                     <div className={styles.titleKey}>NODE</div>

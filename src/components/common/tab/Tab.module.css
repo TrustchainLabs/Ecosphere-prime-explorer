@@ -1,0 +1,33 @@
+.container {
+    padding: 8px;
+    width: 28px;
+    height: 28px;
+    background: var(--tertiary-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container:hover,
+.container:active {
+    background: #ffffff;
+}
+
+.container:hover .icon {
+    filter: invert(100%);
+}
+
+.container:active .icon {
+    filter: invert(100%);
+}
+
+.active {
+    background: #ffffff;
+}
+
+.active .icon {
+    filter: invert(100%);
+}

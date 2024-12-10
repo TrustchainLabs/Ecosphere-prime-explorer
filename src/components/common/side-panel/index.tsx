@@ -6,10 +6,11 @@ import styles from './SidePanel.module.css'
 type SidePanelProps = {
     className?: string,
     position?: 'left' | 'right',
+    style?: { [key: string]: string },
     children?: React.ReactNode
 }
 
-export const SidePanel = ({ className = '', position = 'left', children }: SidePanelProps) => {
+export const SidePanel = ({ className = '', position = 'left', style, children }: SidePanelProps) => {
     const [isOpen, setIsOpen] = useState(true)
 
     const togglePanelView = () => {
@@ -19,6 +20,7 @@ export const SidePanel = ({ className = '', position = 'left', children }: SideP
     return (
         <div
             className={`${ styles.container } ${ position === 'right' ? styles.containerRight : styles.containerLeft }`}
+            style={style}
         >
             <div className={`${ styles.panel } ${ isOpen ? styles.panelOpen : styles.panelClose } ${ className }`}>
                 {children}
