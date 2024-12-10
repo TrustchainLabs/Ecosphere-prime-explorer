@@ -1,3 +1,7 @@
+.panel {
+    gap: 24px;
+}
+
 .top {
     box-sizing: border-box;
     margin: 0px;
