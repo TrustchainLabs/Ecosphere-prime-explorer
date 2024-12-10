@@ -22,33 +22,37 @@
 }
 
 .panel {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 20px;
     height: calc(100vh - 32px);
-    background: grey;
-    opacity: 0.5;
-    transition: all 0.2s ease;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
     pointer-events: all;
+    border-radius: 8px;
 }
 
 .panelOpen {
-    width: 256px;
+    width: 512px;
+    visibility: visible;
 }
 
 .panelClose {
     width: 0px;
+    visibility: hidden;
 }
 
 .navIcon {
     font-size: 24px;
     cursor: pointer;
-    background: grey;
+    background: var(--secondary-color);
     color: white;
-    opacity: 0.5;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     pointer-events: all;
 }
 
 .navIcon:hover {
-    opacity: 1;
+    font-size: 28px;
 }
 
 .navIconLeft {

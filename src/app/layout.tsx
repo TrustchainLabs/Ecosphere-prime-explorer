@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ConfigProvider, ThemeConfig } from 'antd'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -9,11 +10,23 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ['latin'] })
 
+const theme: ThemeConfig = {
+  components: {
+    DatePicker: {
+      colorPrimary: 'var(--primary-color)',
+      cellActiveWithRangeBg: 'var(--primary-color)',
+      cellBgDisabled: 'var(--tertiary-color)'
+    }
+  }
+}
+
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        {children}
+        <ConfigProvider theme={theme}>
+          {children}
+        </ConfigProvider>
       </body>
     </html>
   )

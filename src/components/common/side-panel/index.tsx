@@ -1,13 +1,14 @@
 'use client'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FaAngleLeft } from 'react-icons/fa6'
 import styles from './SidePanel.module.css'
 
 type SidePanelProps = {
-    position?: 'left' | 'right'
+    position?: 'left' | 'right',
+    children?: React.ReactNode
 }
 
-export const SidePanel = ({ position = 'left' }: SidePanelProps) => {
+export const SidePanel = ({ position = 'left', children }: SidePanelProps) => {
     const [isOpen, setIsOpen] = useState(true)
 
     const togglePanelView = () => {
@@ -19,6 +20,7 @@ export const SidePanel = ({ position = 'left' }: SidePanelProps) => {
             className={`${ styles.container } ${ position === 'right' ? styles.containerRight : styles.containerLeft }`}
         >
             <div className={`${ styles.panel } ${ isOpen ? styles.panelOpen : styles.panelClose }`}>
+                {children}
             </div>
             <FaAngleLeft
                 className={`

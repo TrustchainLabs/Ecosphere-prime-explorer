@@ -1,0 +1,41 @@
+.top {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.titleKey {
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.titleValue {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.separator {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.suffixIcon {
+    color: var(--text-color);
+    opacity: 0.7;
+}
