@@ -50,9 +50,10 @@
     font-size: 24px;
     cursor: pointer;
     background: var(--secondary-color);
-    color: white;
+    color: var(--text-color);
     transition: all 0.3s ease;
     pointer-events: all;
+    border-radius: 8px;
 }
 
 .navIcon:hover {
