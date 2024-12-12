@@ -24,9 +24,11 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <ConfigProvider theme={theme}>
-          {children}
-        </ConfigProvider>
+        <main>
+          <ConfigProvider theme={theme}>
+            {children}
+          </ConfigProvider>
+        </main>
       </body>
     </html>
   )
