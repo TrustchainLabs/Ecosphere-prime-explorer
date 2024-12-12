@@ -3,7 +3,7 @@
 :root {
   --primary-color: #d29418;
   --secondary-color: rgba(19, 19, 19, 0.9);
-  --tertiary-color: rgba(120, 120, 120, 0.1);
+  --tertiary-color: rgba(120, 120, 120, 0.15);
   --text-color: rgba(217, 217, 217, 0.9);
   --border-color: rgba(58, 58, 58, 1);
 }
@@ -21,6 +21,8 @@ html, body {
   color: var(--text-color);
 }
 
+/* Mapbox Custom Styles */
+
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
   border-top-color: var(--primary-color) !important;
 }
@@ -28,6 +30,7 @@ html, body {
 .mapboxgl-popup-content {
   background: var(--secondary-color) !important;
   border: 1px solid var(--primary-color) !important;
+  border-radius: 10px !important;
   color: var(--text-color) !important;
   font-family: 'Inter', 'Inter Fallback' !important;
   font-style: normal !important;

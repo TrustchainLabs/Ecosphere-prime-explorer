@@ -5,10 +5,11 @@ type LineChartProps = {
     data: { [key: string]: string | number }[],
     title: string,
     xKey: string,
-    yKey: string
+    yKey: string,
+    legends: { [key: string]: string }
 }
 
-export const LineChart = ({ data, title, xKey, yKey }: LineChartProps) => {
+export const LineChart = ({ data, title, xKey, yKey, legends }: LineChartProps) => {
     return (
         <div className={styles.container}>
             <div className={styles.chartTitle}>
@@ -25,7 +26,7 @@ export const LineChart = ({ data, title, xKey, yKey }: LineChartProps) => {
                     }}
                 >
                     <CartesianGrid
-                        stroke='rgba(120, 120, 120, 0.2)'
+                        stroke='var(--border-color)'
                         strokeDasharray='0'
                         vertical={false}
                     />
@@ -55,9 +56,7 @@ export const LineChart = ({ data, title, xKey, yKey }: LineChartProps) => {
                         wrapperStyle={{
                             top: '180px'
                         }}
-                        formatter={value =>
-                            value.split(' ').map((v: string) => `${v[0].toUpperCase()}${v.slice(1).toLowerCase()}`)
-                        }
+                        formatter={value => legends[value] || value}
                     />
                     <Line
                         type='monotone'

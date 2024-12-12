@@ -6,7 +6,7 @@ export type Geometry = {
 }
 
 export type Feature = {
-    type: 'Feaure',
+    type: 'Feature',
     properties: { [key: string]: any },
     geometry: Geometry
 }

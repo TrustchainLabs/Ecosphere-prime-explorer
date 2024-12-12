@@ -5,10 +5,17 @@ import dayjs from 'dayjs'
 import { FaArrowRightLong, FaRegCalendar } from 'react-icons/fa6'
 import { SidePanel } from '../common/side-panel'
 import { LeftPanelContent } from '../left-panel-content'
+import { Feature } from '../../shared/types'
+import { TabName } from '../../shared/enums'
 import styles from './LeftPanel.module.css'
 
-export const LeftPanel = () => {
-    const [dateRange, setDateRange] = useState([dayjs(), dayjs()])
+type LeftPanelProps = {
+    selectedNode?: Feature,
+    selectedTab: TabName
+}
+
+export const LeftPanel = ({ selectedNode, selectedTab }: LeftPanelProps) => {
+    const [dateRange, setDateRange] = useState([dayjs().subtract(7, 'days'), dayjs()])
 
     const onDateRangeChange = (dateRange: any) => {
         setDateRange(dateRange)
@@ -22,8 +29,14 @@ export const LeftPanel = () => {
         >
             <div className={styles.top}>
                 <div className={styles.title}>
-                    <div className={styles.titleKey}>NODE</div>
-                    <div className={styles.titleValue}>11.11.11</div>
+                    { selectedNode?.properties?.serial &&
+                        <>
+                            <div className={styles.titleKey}>Node</div>
+                            <div className={styles.titleValue}>
+                                {`N-${selectedNode?.properties?.serial}`}
+                            </div>
+                        </>
+                    }
                 </div>
                 <DatePicker.RangePicker
                     separator={<FaArrowRightLong className={styles.separator} />}
@@ -34,7 +47,11 @@ export const LeftPanel = () => {
                     onChange={onDateRangeChange}
                 />
             </div>
-            <LeftPanelContent />
+            <LeftPanelContent
+                selectedNode={selectedNode}
+                dateRange={dateRange as any}
+                selectedTab={selectedTab}
+            />
         </SidePanel>
     )
 }

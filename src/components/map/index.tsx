@@ -1,15 +1,20 @@
 'use client'
 import { useRef, useEffect } from 'react'
 import mapboxgl from 'mapbox-gl'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import { FeatureCollection, Feature } from '../../shared/types'
 import { MAPBOX_ACCESS_TOKEN } from '../../shared/constants'
 import styles from './Map.module.css'
 
+dayjs.extend(relativeTime)
+
 type MapProps = {
-    markerGeojson?: FeatureCollection
+    markerGeojson?: FeatureCollection,
+    onMarkerSelect?: (feature?: Feature) => void
 }
 
-export const Map = ({ markerGeojson }: MapProps) => {
+export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
     const mapRef: any = useRef(null)
     const markersRef: any = useRef([])
 
@@ -55,61 +60,99 @@ export const Map = ({ markerGeojson }: MapProps) => {
         markerEl.src ='/icons/cloud-marker.svg'
         markerEl.alt = 'Marker'
         markerEl.setAttribute('width', '80px')
+        markerEl.onclick = () => onMarkerSelect?.(feature)
 
         return new mapboxgl.Marker(markerEl, { offset: [0, -56] })
             .setLngLat(feature?.geometry.coordinates as any)
             .setPopup(popup)
     }
 
+    const getElapsedTimeFromLatestTransmission = (feature?: Feature) => {
+        if (!feature?.properties?.latestMeasurement?.createdAt) {
+            return 'N/A'
+        }
+
+        return dayjs(dayjs.tz(feature.properties.latestMeasurement.createdAt, dayjs.tz.guess())).toNow()
+    }
+
     const createPopup = (feature?: Feature) => {
         return new mapboxgl.Popup({ closeButton: false })
             .setHTML(`
-                <div class='${styles.popupContent}'>
-                    <img
-                        src='/icons/cloud.svg'
-                        alt='Node'
-                        width='36px'
-                    />
-                    <div class='${styles.node}'>
-                        <div>Node: </div>
-                        <div>11.11.11</div>
+                <div class='${styles.popup}'>
+                    <div class='${styles.popupHeader}'>
+                        <img
+                            src='/icons/cloud.svg'
+                            alt='Node'
+                            width='36px'
+                        />
+                        <div class='${styles.node}'>
+                            <div>Node</div>
+                            <div>|</div>
+                            <div>
+                                N-${feature?.properties?.serial}
+                            </div>
+                        </div>
+                        <div class='${styles.metadata}'>
+                            <div>
+                                ${feature?.geometry?.coordinates?.join(', ') + 'm'}
+                            </div>
+                            <div>
+                                ${getElapsedTimeFromLatestTransmission(feature)}
+                            </div>
+                        </div>
                     </div>
                     <table>
                         <tbody>
                             <tr>
-                                <td class='${styles.popupContentKeyIcon}'><img src='/icons/water-droplet.svg' alt='Water Droplet' width='16px' /></td>
-                                <td class='${styles.popupContentKey}'>Precipitation</td>
-                                <td class='${styles.popupContentValue}'>26.14 cm</td>
+                                <td class='${styles.popupContentKeyIcon}'>
+                                    <img src='/icons/thermostat.svg' alt='Temperature' width='8px' />
+                                </td>
+                                <td class='${styles.popupContentKey}'>Temperature</td>
+                                <td class='${styles.popupContentValue}'>
+                                    ${feature?.properties?.latestMeasurement?.temperature?.value} ${feature?.properties?.latestMeasurement?.temperature?.unit}
+                                </td>
                             </tr>
                             <tr>
-                                <td class='${styles.popupContentKeyIcon}'><img src='/icons/sun.svg' alt='Sun' width='16px' /></td>
-                                <td class='${styles.popupContentKey}'>UV</td>
-                                <td class='${styles.popupContentValue}'>5.87 pK</td>
-                            </tr>
-                            <tr>
-                                <td class='${styles.popupContentKeyIcon}'><img src='/icons/wind.svg' alt='Wind' width='16px' /></td>
-                                <td class='${styles.popupContentKey}'>Windspeed</td>
-                                <td class='${styles.popupContentValue}'>10.5 m/s</td>
-                            </tr>
-                            <tr>
-                                <td class='${styles.popupContentKeyIcon}'><img src='/icons/compass.svg' alt='Compass' width='16px' /></td>
+                                <td class='${styles.popupContentKeyIcon}'>
+                                    <img src='/icons/compass.svg' alt='Compass' width='16px' />
+                                </td>
                                 <td class='${styles.popupContentKey}'>Wind Direction</td>
-                                <td class='${styles.popupContentValue}'>90 W</td>
+                                <td class='${styles.popupContentValue}'>
+                                    ${feature?.properties?.latestMeasurement?.windDirection?.value} ${feature?.properties?.latestMeasurement?.windDirection?.unit}
+                                </td>
                             </tr>
                             <tr>
-                                <td class='${styles.popupContentKeyIcon}'><img src='/icons/gauge.svg' alt='Gauge' width='16px' /></td>
-                                <td class='${styles.popupContentKey}'>Atm Pressure</td>
-                                <td class='${styles.popupContentValue}'>26.14 Bar</td>
+                                <td class='${styles.popupContentKeyIcon}'>
+                                    <img src='/icons/wind.svg' alt='Wind' width='16px' />
+                                </td>
+                                <td class='${styles.popupContentKey}'>Wind Speed</td>
+                                <td class='${styles.popupContentValue}'>
+                                    ${feature?.properties?.latestMeasurement?.windSpeed?.value} ${feature?.properties?.latestMeasurement?.windSpeed?.unit}
+                                </td>
                             </tr>
                             <tr>
-                                <td class='${styles.popupContentKeyIcon}'><img src='/icons/airwave.svg' alt='Air Wave' width='16px' /></td>
+                                <td class='${styles.popupContentKeyIcon}'>
+                                    <img src='/icons/gauge.svg' alt='Gauge' width='16px' />
+                                </td>
+                                <td class='${styles.popupContentKey}'>Atm. Pressure</td>
+                                <td class='${styles.popupContentValue}'>
+                                    ${feature?.properties?.latestMeasurement?.atmPressure?.value} ${feature?.properties?.latestMeasurement?.atmPressure?.unit}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='${styles.popupContentKeyIcon}'>
+                                    <img src='/icons/airwave.svg' alt='Airwave' width='16px' /></td>
                                 <td class='${styles.popupContentKey}'>Air Quality</td>
-                                <td class='${styles.popupContentValue}'>2.5 PM</td>
+                                <td class='${styles.popupContentValue}'>
+                                    ${feature?.properties?.latestMeasurement?.airQuality?.value} ${feature?.properties?.latestMeasurement?.airQuality?.unit}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             `)
+            .on('close', () => onMarkerSelect?.())
+            .on('open', () => onMarkerSelect?.(feature))
     }
 
     return (
