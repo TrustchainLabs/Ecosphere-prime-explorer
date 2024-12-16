@@ -21,6 +21,10 @@ html, body {
   color: var(--text-color);
 }
 
+* {
+  font-family: 'Inter', 'Inter Fallback' !important;
+}
+
 main {
   box-sizing: border-box;
   margin: 0px;
@@ -31,6 +35,10 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+a {
+  color: var(--primary-color) !important;
 }
 
 /* Mapbox Custom Styles */
@@ -50,7 +58,7 @@ main {
 
 /* AntD Custom Styles */
 
-/* DateRangePicker Styles */
+/* AntD DateRangePicker Styles */
 .ant-picker-range,
 .ant-picker-range:hover,
 .ant-picker-range:active {
@@ -100,4 +108,42 @@ main {
 .ant-picker-panel-container .ant-picker-header-super-next-btn,
 .ant-picker-panel-container .ant-picker-header-next-btn {
   color: var(--text-color) !important;
+}
+
+/* AntD Form Styles */
+.ant-input-outlined {
+  background: var(--tertiary-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.ant-input-outlined:focus {
+  border: 1px solid var(--primary-color) !important;
+}
+
+.ant-input[type='password'] {
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-color) !important;
+}
+
+.ant-input-outlined:has(.ant-input[type='password']:focus) {
+  border: 1px solid var(--primary-color) !important;
+}
+
+.anticon {
+  color: var(--text-color) !important;
+}
+
+/* AntD Dropdown Styles */
+.ant-dropdown-menu {
+  background: var(--tertiary-color) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--text-color) !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: var(--primary-color) !important;
 }

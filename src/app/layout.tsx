@@ -16,6 +16,21 @@ const theme: ThemeConfig = {
       colorPrimary: 'var(--primary-color)',
       cellActiveWithRangeBg: 'var(--primary-color)',
       cellBgDisabled: 'var(--tertiary-color)'
+    },
+    Form: {
+      labelColor: 'var(--text-color)',
+      colorBorder: 'var(--border-color)',
+      colorPrimary: 'var(--primary-color)',
+      colorText: 'var(--text-color)'
+    },
+    Button: {
+      colorPrimary: 'var(--primary-color)',
+      primaryColor: 'var(--text-color)',
+      colorPrimaryHover: 'var(--tertiary-color)',
+      colorPrimaryActive: 'var(--tertiary-color)'
+    },
+    Spin: {
+      colorPrimary: 'var(--primary-color)'
     }
   }
 }

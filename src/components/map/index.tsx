@@ -23,8 +23,8 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
             container: 'map',
             accessToken: MAPBOX_ACCESS_TOKEN,
             style: 'mapbox://styles/mapbox/dark-v10',
-            center: [101.70977605792783, 3.157292964783922],
-            zoom: 6
+            center: [101.31551054444253, 3.041923959239469],
+            zoom: 10
         })
     }, [])
 

@@ -5,3 +5,7 @@ export enum TabName {
     WIND_DIRECTION = 'windDirection',
     AIR_QUALITY = 'airQuality'
 }
+
+export enum UserType {
+    PROVIDER = 'Provider'
+}

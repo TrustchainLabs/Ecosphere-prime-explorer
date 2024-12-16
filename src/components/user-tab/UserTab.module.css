@@ -1,0 +1,14 @@
+.avatar {
+    background: var(--tertiary-color) !important;
+    color: var(--text-color) !important;   
+}
+
+.avatar:hover,
+.avatar:active {
+    background: #ffffff !important;
+}
+
+.avatar:hover svg,
+.avatar:active svg {
+    filter: invert(100%);
+}

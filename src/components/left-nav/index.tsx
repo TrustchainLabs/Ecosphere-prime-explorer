@@ -1,4 +1,5 @@
 import { Tab } from '../common/tab'
+import { UserTab } from '../user-tab'
 import { TabName } from '../../shared/enums'
 import styles from './LeftNav.module.css'
 
@@ -52,6 +53,7 @@ export const LeftNav = ({ selectedTab, onTabSelect }: LeftNavProps) => {
                     onClick={onTabSelect}
                 />
             </div>
+            <UserTab className={styles.userTab} />
         </div>
     )
 }
