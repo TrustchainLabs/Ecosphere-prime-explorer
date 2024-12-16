@@ -118,7 +118,7 @@ export const LoginForm = () => {
                                 alignItems: 'center'
                             }}
                         >
-                            Don't have an account? Sign up
+                            {`Don't have an account? Sign up`}
                             <Link
                                 href='/sign-up'
                                 style={{
