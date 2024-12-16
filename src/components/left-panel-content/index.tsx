@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import { AddDevice } from '../add-device'
 import { LineChart } from '../common/line-chart'
 import { Feature } from '../../shared/types'
 import { MeasurementsAPI } from '../../shared/services/measurements'
@@ -17,15 +18,25 @@ type LeftPanelContentProps = {
     selectedTab: TabName
 }
 
-const tabTitle = {
+const tabIcon: { [key: string]: string } = {
+    [TabName.TEMPERATURE]: 'thermostat',
+    [TabName.ATM_PRESSURE]: 'gauge',
+    [TabName.WIND_SPEED]: 'wind',
+    [TabName.WIND_DIRECTION]: 'compass',
+    [TabName.AIR_QUALITY]: 'airwave',
+    [TabName.ADD_DEVICE]: 'plus'
+}
+
+const tabTitle: { [key: string]: string } = {
     [TabName.TEMPERATURE]: 'Temperature',
     [TabName.ATM_PRESSURE]: 'Atm Pressure',
     [TabName.WIND_SPEED]: 'Wind Speed',
     [TabName.WIND_DIRECTION]: 'Wind Direction',
-    [TabName.AIR_QUALITY]: 'Air Quality'
+    [TabName.AIR_QUALITY]: 'Air Quality',
+    [TabName.ADD_DEVICE]: 'Add Device'
 }
 
-const chartTitle = {
+const chartTitle: { [key: string]: string } = {
     [TabName.TEMPERATURE]: 'Avg Temperature',
     [TabName.ATM_PRESSURE]: 'Avg Atm Pressure',
     [TabName.WIND_SPEED]: 'Avg Wind Speed',
@@ -33,7 +44,7 @@ const chartTitle = {
     [TabName.AIR_QUALITY]: 'Avg Air Quality'
 }
 
-const yKey = {
+const yKey: { [key: string]: string } = {
     [TabName.TEMPERATURE]: 'averageTemperature',
     [TabName.ATM_PRESSURE]: 'averageAtmPressure',
     [TabName.WIND_SPEED]: 'averageWindSpeed',
@@ -70,25 +81,29 @@ export const LeftPanelContent = ({ selectedNode, dateRange, selectedTab }: LeftP
         <div className={styles.container}>
             <div className={styles.titleContainer}>
                 <img
-                    src='/icons/thermostat.svg'
-                    alt='Thermostat'
-                    width={10}
+                    src={`/icons/${tabIcon[selectedTab]}.svg`}
+                    alt={tabIcon[selectedTab]}
+                    width='18px'
                 />
                 <div className={styles.title}>
                     { tabTitle[selectedTab] }
                 </div>
             </div>
-            <div className={styles.chartContainer}>
-                <LineChart
-                    data={measurements}
-                    title={chartTitle[selectedTab]}
-                    xKey='day'
-                    yKey={yKey[selectedTab]}
-                    legends={{
-                        [yKey[selectedTab]]: chartTitle[selectedTab]
-                    }}
-                />
-            </div>
+            {
+                selectedTab === TabName.ADD_DEVICE ?
+                <AddDevice /> :
+                <div className={styles.chartContainer}>
+                    <LineChart
+                        data={measurements}
+                        title={chartTitle[selectedTab]}
+                        xKey='day'
+                        yKey={yKey[selectedTab]}
+                        legends={{
+                            [yKey[selectedTab]]: chartTitle[selectedTab]
+                        }}
+                    />
+                </div>
+            }
         </div>
     )
 }

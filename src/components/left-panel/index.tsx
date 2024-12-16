@@ -28,24 +28,29 @@ export const LeftPanel = ({ selectedNode, selectedTab }: LeftPanelProps) => {
             style={{ left: '110px' }}
         >
             <div className={styles.top}>
-                <div className={styles.title}>
-                    { selectedNode?.properties?.serial &&
-                        <>
-                            <div className={styles.titleKey}>Node</div>
-                            <div className={styles.titleValue}>
-                                {`N-${selectedNode?.properties?.serial}`}
-                            </div>
-                        </>
-                    }
-                </div>
-                <DatePicker.RangePicker
-                    separator={<FaArrowRightLong className={styles.separator} />}
-                    suffixIcon={<FaRegCalendar className={styles.suffixIcon} />}
-                    minDate={dayjs().subtract(2, 'months')}
-                    maxDate={dayjs()}
-                    value={dateRange as any}
-                    onChange={onDateRangeChange}
-                />
+                {
+                    selectedTab !== TabName.ADD_DEVICE &&
+                    <>
+                        <div className={styles.title}>
+                            { selectedNode?.properties?.serial &&
+                                <>
+                                    <div className={styles.titleKey}>Node</div>
+                                    <div className={styles.titleValue}>
+                                        {`N-${selectedNode?.properties?.serial}`}
+                                    </div>
+                                </>
+                            }
+                        </div>
+                        <DatePicker.RangePicker
+                            separator={<FaArrowRightLong className={styles.separator} />}
+                            suffixIcon={<FaRegCalendar className={styles.suffixIcon} />}
+                            minDate={dayjs().subtract(2, 'months')}
+                            maxDate={dayjs()}
+                            value={dateRange as any}
+                            onChange={onDateRangeChange}
+                        />
+                    </>
+                }
             </div>
             <LeftPanelContent
                 selectedNode={selectedNode}

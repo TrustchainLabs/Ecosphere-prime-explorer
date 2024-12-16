@@ -1,7 +1,9 @@
-export type Coordinates = [number, number]
+import { GeometryType } from '../enums'
+
+export type Coordinates = [number, number, number]
 
 export type Geometry = {
-    type: 'Point',
+    type: GeometryType.POINT,
     coordinates: Coordinates
 }
 

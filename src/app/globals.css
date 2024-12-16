@@ -58,6 +58,15 @@ a {
   font-style: normal !important;
 }
 
+/* Mapbox GL Draw Styles */
+.mapboxgl-ctrl-group {
+  background: var(--secondary-color) !important;
+}
+
+.mapbox-gl-draw_ctrl-draw-btn {
+  filter: invert(100%);
+}
+
 /* AntD Custom Styles */
 
 /* AntD DateRangePicker Styles */
@@ -139,7 +148,7 @@ a {
 
 /* AntD Dropdown Styles */
 .ant-dropdown-menu {
-  background: var(--tertiary-color) !important;
+  background: var(--secondary-color) !important;
 }
 
 .ant-dropdown-menu-item {
