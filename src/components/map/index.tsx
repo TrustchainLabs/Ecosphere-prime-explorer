@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { FeatureCollection, Feature } from '../../shared/types'
-import { MAPBOX_ACCESS_TOKEN } from '../../shared/constants'
+import { MAPBOX_ACCESS_TOKEN, HASHSCAN_URL } from '../../shared/constants'
 import styles from './Map.module.css'
 
 dayjs.extend(relativeTime)
@@ -93,6 +93,12 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                             </div>
                         </div>
                         <div class='${styles.metadata}'>
+                            <a
+                                href='${HASHSCAN_URL}/account/${feature?.properties?.hederaAccount}'
+                                target='_blank'
+                            >
+                                ${feature?.properties?.hederaAccount}
+                            </a>
                             <div>
                                 ${feature?.geometry?.coordinates?.join(', ') + 'm'}
                             </div>

@@ -38,6 +38,8 @@ main {
 }
 
 a {
+  text-decoration: underline !important;
+  outline: none !important;
   color: var(--primary-color) !important;
 }
 
