@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { createContext, useState, useMemo } from 'react'
 import { Form, Input, Button, notification } from 'antd'
 import { AuthAPI } from '../../shared/services/auth'
@@ -58,12 +59,12 @@ export const SignUpForm = () => {
             {contextHolder}
             <div className={styles.container}>
                 <div className={styles.title}>
-                    <img
+                    <Image
                         src='/images/brand-logo.svg'
                         alt='Brand Logo'
                         width={32}
                     />
-                    <img
+                    <Image
                         src='/images/brand-title.svg'
                         alt='Brand Title'
                         width={240}

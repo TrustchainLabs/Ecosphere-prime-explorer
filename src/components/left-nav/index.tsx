@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Tab } from '../common/tab'
 import { UserTab } from '../user-tab'
 import { TabName } from '../../shared/enums'
@@ -11,7 +12,7 @@ type LeftNavProps = {
 export const LeftNav = ({ selectedTab, onTabSelect }: LeftNavProps) => {
     return (
         <div className={styles.container}>
-            <img
+            <Image
                 src='/images/brand-logo.svg'
                 alt='Brand Logo'
                 width={36}

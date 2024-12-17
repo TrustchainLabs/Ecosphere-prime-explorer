@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Tooltip } from 'antd'
 import { TabName } from '../../../shared/enums'
 import styles from './Tab.module.css'
@@ -19,7 +20,7 @@ export const Tab = ({ className = '', name, tooltip, src, alt, active, onClick }
                 className={`${styles.container} ${ active ? styles.active : '' } ${className}`}
                 onClick={() => onClick(name)}
             >
-                <img
+                <Image
                     className={styles.icon}
                     src={src}
                     alt={alt}

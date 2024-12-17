@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -80,10 +81,10 @@ export const LeftPanelContent = ({ selectedNode, dateRange, selectedTab }: LeftP
     return (
         <div className={styles.container}>
             <div className={styles.titleContainer}>
-                <img
+                <Image
                     src={`/icons/${tabIcon[selectedTab]}.svg`}
                     alt={tabIcon[selectedTab]}
-                    width='18px'
+                    width={18}
                 />
                 <div className={styles.title}>
                     { tabTitle[selectedTab] }
