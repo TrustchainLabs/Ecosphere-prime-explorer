@@ -4,7 +4,7 @@ import { ConfigProvider, ThemeConfig } from 'antd'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Ecosphere Prime App',
+  title: 'Ecosphere Prime Explorer',
   description: 'Ecosphere Hyper-local Climate Intelligence Oracle'
 }
 

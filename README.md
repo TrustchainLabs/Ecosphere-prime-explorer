@@ -1,10 +1,10 @@
 ## Title
 
-Ecosphere Prime Web App
+Ecosphere Prime Explorer App
 
 ## Description
 
-Ecosphere Prime web app to visualize climate data built with NextJS
+Ecosphere Prime Explorer app to visualize climate data built with NextJS
 
 ## Getting Started
 

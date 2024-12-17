@@ -1,6 +1,6 @@
 {
-  "name": "ecosphere-web",
-  "description": "Ecosphere Prime Web App",
+  "name": "ecosphere-prime-explorer",
+  "description": "Ecosphere Prime Explorer App",
   "version": "0.1.0",
   "private": true,
   "engines": {
