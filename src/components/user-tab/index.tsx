@@ -31,7 +31,7 @@ export const UserTab = ({ className = '' }: UserTabProps) => {
             }}
             trigger={['click']}
         >
-            <Tooltip title={user.email}>
+            <Tooltip title={user?.email || ''}>
                 <Avatar
                     className={`${styles.avatar} ${className}`}
                     src={<FaRegUser color='#ffffff' />}

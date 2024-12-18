@@ -25,6 +25,34 @@ export class AuthAPI {
             password,
             tags
         })
+
+        // Check if user has a wallet. If not create a new wallet
+        // Login user for session
+        await this.login({ email, password })
+
+        const userId = res.data?._id || ''
+        try {
+            await axios.get(`${SMART_APP_API_URL}/wallets/${userId}`, { withCredentials: true })
+        } catch (e) {
+            console.error(e)
+
+            // Create wallet
+            const wallet = await axios.post(
+                `${SMART_APP_API_URL}/wallets`,
+                {
+                    userId
+                },
+                {
+                    withCredentials: true
+                }
+            )
+
+            res.data.wallet = wallet.data
+        }
+
+        // Logout
+        await this.logout()
+
         return res.data
     }
 
