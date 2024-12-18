@@ -32,11 +32,11 @@ export const LeftPanel = ({ selectedNode, selectedTab }: LeftPanelProps) => {
                     selectedTab !== TabName.ADD_DEVICE &&
                     <>
                         <div className={styles.title}>
-                            { selectedNode?.properties?.serial &&
+                            { selectedNode?.properties?.uuid &&
                                 <>
-                                    <div className={styles.titleKey}>Node</div>
+                                    <div className={styles.titleKey}>Device</div>
                                     <div className={styles.titleValue}>
-                                        {`N-${selectedNode?.properties?.serial}`}
+                                        {`${selectedNode?.properties?.uuid}`}
                                     </div>
                                 </>
                             }

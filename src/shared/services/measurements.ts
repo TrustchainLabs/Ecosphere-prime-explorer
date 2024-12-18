@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_URL } from '../constants'
+import { SMART_APP_API_URL } from '../constants'
 
 type GetMeasurementsParams = {
     startDate: Date,
@@ -10,13 +10,14 @@ type GetMeasurementsParams = {
 
 export class MeasurementsAPI {
     public static async getMeasurements ({ startDate, endDate, deviceId, groupBy }: GetMeasurementsParams) {
-        const res =  await axios.get(`${API_URL}/measurements`, {
+        const res =  await axios.get(`${SMART_APP_API_URL}/hcs/messages`, {
             params: {
                 startDate,
                 endDate,
                 deviceId,
                 groupBy
-            }
+            },
+            withCredentials: true
         })
         return res.data
     }

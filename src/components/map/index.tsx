@@ -82,14 +82,14 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                     <div class='${styles.popupHeader}'>
                         <img
                             src='/icons/cloud.svg'
-                            alt='Node'
+                            alt='Device'
                             width='36px'
                         />
                         <div class='${styles.node}'>
-                            <div>Node</div>
+                            <div>Device</div>
                             <div>|</div>
                             <div>
-                                N-${feature?.properties?.serial}
+                                ${feature?.properties?.uuid}
                             </div>
                         </div>
                         <div class='${styles.metadata}'>
