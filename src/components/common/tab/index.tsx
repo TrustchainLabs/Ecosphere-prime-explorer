@@ -24,6 +24,8 @@ export const Tab = ({ className = '', name, tooltip, src, alt, active, onClick }
                     className={styles.icon}
                     src={src}
                     alt={alt}
+                    width={18}
+                    height={16}
                 />
             </div>
         </Tooltip>

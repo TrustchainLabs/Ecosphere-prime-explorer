@@ -1,0 +1,16 @@
+.guestUser {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.guestUserButton {
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+}

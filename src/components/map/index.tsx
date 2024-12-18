@@ -111,7 +111,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                         <tbody>
                             <tr>
                                 <td class='${styles.popupContentKeyIcon}'>
-                                    <img src='/icons/thermostat.svg' alt='Temperature' width='8px' />
+                                    <img src='/icons/thermostat.svg' alt='Temperature' width='16px' />
                                 </td>
                                 <td class='${styles.popupContentKey}'>Temperature</td>
                                 <td class='${styles.popupContentValue}'>

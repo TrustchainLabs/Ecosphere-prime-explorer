@@ -16,6 +16,7 @@ export const LeftNav = ({ selectedTab, onTabSelect }: LeftNavProps) => {
                 src='/images/brand-logo.svg'
                 alt='Brand Logo'
                 width={36}
+                height={36}
             />
             <div className={styles.tabs}>
                 <Tab

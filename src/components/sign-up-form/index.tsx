@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { createContext, useState, useMemo } from 'react'
 import { Form, Input, Button, notification } from 'antd'
+import { LoginGuestUser } from '../login-guest-user'
 import { AuthAPI } from '../../shared/services/auth'
 import { UserType } from '../../shared/enums'
 import styles from './SignUpForm.module.css'
@@ -63,11 +64,13 @@ export const SignUpForm = () => {
                         src='/images/brand-logo.svg'
                         alt='Brand Logo'
                         width={32}
+                        height={32}
                     />
                     <Image
                         src='/images/brand-title.svg'
                         alt='Brand Title'
                         width={240}
+                        height={40}
                     />
                 </div>
                 <div className={styles.signUpForm}>
@@ -149,6 +152,7 @@ export const SignUpForm = () => {
                         </Form.Item>
                     </Form>
                 </div>
+                <LoginGuestUser />
             </div>
         </Context.Provider>
     )

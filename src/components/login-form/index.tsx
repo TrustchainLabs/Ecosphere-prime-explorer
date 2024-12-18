@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { createContext, useState, useMemo } from 'react'
 import { Form, Input, Button, notification } from 'antd'
+import { LoginGuestUser } from '../login-guest-user'
 import { AuthAPI } from '../../shared/services/auth'
 import styles from './LoginForm.module.css'
 
@@ -25,8 +26,8 @@ export const LoginForm = () => {
         try {
             const res = await login(values)
             localStorage.setItem('accessToken', res.accessToken)
-            localStorage.setItem('operator', res.operator)
-            localStorage.setItem('user', res.user)
+            localStorage.setItem('operator', JSON.stringify(res.operator))
+            localStorage.setItem('user', JSON.stringify(res.user))
 
             router.push('/')
         } catch (e) {
@@ -58,11 +59,13 @@ export const LoginForm = () => {
                         src='/images/brand-logo.svg'
                         alt='Brand Logo'
                         width={32}
+                        height={32}
                     />
                     <Image
                         src='/images/brand-title.svg'
                         alt='Brand Title'
                         width={240}
+                        height={40}
                     />
                 </div>
                 <div className={styles.loginForm}>
@@ -131,6 +134,7 @@ export const LoginForm = () => {
                         </Form.Item>
                     </Form>
                 </div>
+                <LoginGuestUser />
             </div>
         </Context.Provider>
     )
