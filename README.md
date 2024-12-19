@@ -8,25 +8,9 @@ Ecosphere Prime Explorer app to visualize climate data built with NextJS
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
 # Install dependencies
-npm ci
-
-# Run dev server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
-
-## Production Deployment
-
-First, run the development server:
-
-```bash
-# Install dependencies
-npm ci
+npm ci --legacy-peer-deps
 
 # Build the app
 npm run build
