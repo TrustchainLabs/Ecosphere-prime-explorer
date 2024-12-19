@@ -97,7 +97,13 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                                 href='${HASHSCAN_URL}/account/${feature?.properties?.hederaAccount}'
                                 target='_blank'
                             >
-                                ${feature?.properties?.hederaAccount}
+                                Account: ${feature?.properties?.hederaAccount}
+                            </a>
+                            <a
+                                href='${HASHSCAN_URL}/topic/${feature?.properties?.hcsTopics?.find((t: any) => t.hederaTopicName.endsWith('data'))?.hederaTopicId}'
+                                target='_blank'
+                            >
+                                Topic: ${feature?.properties?.hcsTopics?.find((t: any) => t.hederaTopicName.endsWith('data'))?.hederaTopicId}
                             </a>
                             <div>
                                 ${feature?.geometry?.coordinates?.join(', ') + 'm'}
@@ -115,7 +121,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                                 </td>
                                 <td class='${styles.popupContentKey}'>Temperature</td>
                                 <td class='${styles.popupContentValue}'>
-                                    ${feature?.properties?.latestMeasurement?.temperature?.value} ${feature?.properties?.latestMeasurement?.temperature?.unit}
+                                    ${feature?.properties?.latestMeasurement?.temperature?.value || 'N/A'} ${feature?.properties?.latestMeasurement?.temperature?.unit || ''}
                                 </td>
                             </tr>
                             <tr>
@@ -124,7 +130,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                                 </td>
                                 <td class='${styles.popupContentKey}'>Wind Direction</td>
                                 <td class='${styles.popupContentValue}'>
-                                    ${feature?.properties?.latestMeasurement?.windDirection?.value} ${feature?.properties?.latestMeasurement?.windDirection?.unit}
+                                    ${feature?.properties?.latestMeasurement?.windDirection?.value || 'N/A'} ${feature?.properties?.latestMeasurement?.windDirection?.unit || ''}
                                 </td>
                             </tr>
                             <tr>
@@ -133,7 +139,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                                 </td>
                                 <td class='${styles.popupContentKey}'>Wind Speed</td>
                                 <td class='${styles.popupContentValue}'>
-                                    ${feature?.properties?.latestMeasurement?.windSpeed?.value} ${feature?.properties?.latestMeasurement?.windSpeed?.unit}
+                                    ${feature?.properties?.latestMeasurement?.windSpeed?.value || 'N/A'} ${feature?.properties?.latestMeasurement?.windSpeed?.unit || ''}
                                 </td>
                             </tr>
                             <tr>
@@ -142,7 +148,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                                 </td>
                                 <td class='${styles.popupContentKey}'>Atm. Pressure</td>
                                 <td class='${styles.popupContentValue}'>
-                                    ${feature?.properties?.latestMeasurement?.atmPressure?.value} ${feature?.properties?.latestMeasurement?.atmPressure?.unit}
+                                    ${feature?.properties?.latestMeasurement?.atmPressure?.value || 'N/A'} ${feature?.properties?.latestMeasurement?.atmPressure?.unit || ''}
                                 </td>
                             </tr>
                             <tr>
@@ -150,7 +156,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
                                     <img src='/icons/airwave.svg' alt='Airwave' width='16px' /></td>
                                 <td class='${styles.popupContentKey}'>Air Quality</td>
                                 <td class='${styles.popupContentValue}'>
-                                    ${feature?.properties?.latestMeasurement?.airQuality?.value} ${feature?.properties?.latestMeasurement?.airQuality?.unit}
+                                    ${feature?.properties?.latestMeasurement?.airQuality?.value || 'N/A'} ${feature?.properties?.latestMeasurement?.airQuality?.unit || ''}
                                 </td>
                             </tr>
                         </tbody>
