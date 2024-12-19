@@ -26,7 +26,14 @@ export const SignUpForm = () => {
     const onFinish = async (values: FieldType) => {
         setIsLoading(true)
         try {
-            await signUp(values)
+            const user = await signUp(values)
+            window.prompt(
+                `Please save and keep secure:\n`,
+                `
+                    Wallet ID: ${user?.wallet?.account?.id}\n
+                    Private Key: ${user?.wallet?.account?.privateKey}
+                `
+            )
             router.push('/')
         } catch (e) {
             console.error(e)
