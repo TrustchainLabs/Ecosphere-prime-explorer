@@ -72,7 +72,7 @@ export const Map = ({ markerGeojson, onMarkerSelect }: MapProps) => {
             return 'N/A'
         }
 
-        return dayjs(dayjs.tz(feature.properties.latestMeasurement.createdAt, dayjs.tz.guess())).toNow()
+        return dayjs(feature.properties.latestMeasurement.createdAt).fromNow()
     }
 
     const createPopup = (feature?: Feature) => {
