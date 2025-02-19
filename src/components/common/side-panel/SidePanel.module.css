@@ -50,7 +50,8 @@
 }
 
 .navIcon {
-    font-size: 24px;
+    padding: 4px;
+    font-size: 18px;
     cursor: pointer;
     background: var(--secondary-color);
     color: var(--text-color);
@@ -61,7 +62,7 @@
 }
 
 .navIcon:hover {
-    font-size: 28px;
+    font-size: 22px;
 }
 
 .navIconLeft {
