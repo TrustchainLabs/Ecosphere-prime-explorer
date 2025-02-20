@@ -60,6 +60,10 @@ a {
   font-style: normal !important;
 }
 
+.mapboxgl-ctrl-attrib {
+  display: none;
+}
+
 /* Mapbox GL Draw Styles */
 .mapboxgl-ctrl-group {
   background: var(--background-color) !important;
