@@ -43,6 +43,7 @@ a {
   text-decoration: underline !important;
   outline: none !important;
   color: var(--secondary-color) !important;
+  font-weight: 500;
 }
 
 /* Mapbox Custom Styles */
