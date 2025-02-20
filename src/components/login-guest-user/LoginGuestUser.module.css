@@ -10,7 +10,7 @@
 }
 
 .guestUserButton {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: underline;
     cursor: pointer;
 }

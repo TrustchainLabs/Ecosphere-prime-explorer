@@ -2,7 +2,7 @@
     padding: 8px;
     width: 28px;
     height: 28px;
-    background: var(--tertiary-color);
+    background: var(--content-background-color);
     border-radius: 8px;
     display: flex;
     flex-direction: row;

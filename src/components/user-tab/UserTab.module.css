@@ -1,5 +1,5 @@
 .avatar {
-    background: var(--tertiary-color) !important;
+    background: var(--content-background-color) !important;
     color: var(--text-color) !important;   
 }
 

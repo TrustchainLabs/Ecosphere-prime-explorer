@@ -15,7 +15,7 @@ const theme: ThemeConfig = {
     DatePicker: {
       colorPrimary: 'var(--primary-color)',
       cellActiveWithRangeBg: 'var(--primary-color)',
-      cellBgDisabled: 'var(--tertiary-color)'
+      cellBgDisabled: 'var(--content-background-color)'
     },
     Form: {
       labelColor: 'var(--text-color)',
@@ -26,8 +26,8 @@ const theme: ThemeConfig = {
     Button: {
       colorPrimary: 'var(--primary-color)',
       primaryColor: 'var(--text-color)',
-      colorPrimaryHover: 'var(--tertiary-color)',
-      colorPrimaryActive: 'var(--tertiary-color)'
+      colorPrimaryHover: 'var(--primary-hover-color)',
+      colorPrimaryActive: 'var(--primary-hover-color)'
     },
     Spin: {
       colorPrimary: 'var(--primary-color)'

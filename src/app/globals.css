@@ -1,11 +1,13 @@
 @import 'mapbox-gl/dist/mapbox-gl.css';
 
 :root {
-  --primary-color: #d29418;
-  --secondary-color: rgba(19, 19, 19, 0.9);
-  --tertiary-color: rgba(120, 120, 120, 0.15);
-  --text-color: rgba(217, 217, 217, 0.9);
+  --primary-color: rgba(18, 160, 56, 1);
+  --secondary-color: rgba(210, 148, 24, 1);
+  --background-color: rgba(19, 19, 19, 0.9);
+  --content-background-color: rgba(120, 120, 120, 0.15);
+  --text-color: rgba(217, 217, 217, 1);
   --border-color: rgba(58, 58, 58, 1);
+  --primary-hover-color: rgba(15, 130, 45, 1);
 }
 
 html, body {
@@ -40,7 +42,7 @@ main {
 a {
   text-decoration: underline !important;
   outline: none !important;
-  color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
 }
 
 /* Mapbox Custom Styles */
@@ -50,7 +52,7 @@ a {
 }
 
 .mapboxgl-popup-content {
-  background: var(--secondary-color) !important;
+  background: var(--background-color) !important;
   border: 1px solid var(--primary-color) !important;
   border-radius: 10px !important;
   color: var(--text-color) !important;
@@ -60,7 +62,7 @@ a {
 
 /* Mapbox GL Draw Styles */
 .mapboxgl-ctrl-group {
-  background: var(--secondary-color) !important;
+  background: var(--background-color) !important;
 }
 
 .mapbox-gl-draw_ctrl-draw-btn {
@@ -73,7 +75,7 @@ a {
 .ant-picker-range,
 .ant-picker-range:hover,
 .ant-picker-range:active {
-  background: var(--tertiary-color) !important;
+  background: var(--content-background-color) !important;
   border: none !important;
   box-shadow: none !important;
 }
@@ -103,7 +105,7 @@ a {
 
 .ant-picker-range-arrow::before,
 .ant-picker-panel-container {
-  background: var(--tertiary-color) !important;
+  background: var(--content-background-color) !important;
   backdrop-filter: blur(6px) !important;
   border: 2px solid var(--border-color) !important;
 }
@@ -123,7 +125,7 @@ a {
 
 /* AntD Form Styles */
 .ant-input-outlined {
-  background: var(--tertiary-color) !important;
+  background: var(--content-background-color) !important;
   border: 1px solid var(--border-color) !important;
   color: var(--text-color) !important;
 }
@@ -148,7 +150,7 @@ a {
 
 /* AntD Dropdown Styles */
 .ant-dropdown-menu {
-  background: var(--secondary-color) !important;
+  background: var(--background-color) !important;
 }
 
 .ant-dropdown-menu-item {
