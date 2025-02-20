@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { Tab } from '../common/tab'
 import { UserTab } from '../user-tab'
@@ -12,12 +13,14 @@ type LeftNavProps = {
 export const LeftNav = ({ selectedTab, onTabSelect }: LeftNavProps) => {
     return (
         <div className={styles.container}>
-            <Image
-                src='/images/brand-logo.svg'
-                alt='Brand Logo'
-                width={36}
-                height={36}
-            />
+            <Link href='https://ecosphereprime.com' target='_blank'>
+                <Image
+                    src='/images/brand-logo.svg'
+                    alt='Brand Logo'
+                    width={36}
+                    height={36}
+                />
+            </Link>
             <div className={styles.tabs}>
                 <Tab
                     name={TabName.TEMPERATURE}
