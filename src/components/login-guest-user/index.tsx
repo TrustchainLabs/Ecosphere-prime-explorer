@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation'
+import { Button } from 'antd'
 import { AuthAPI } from '../../shared/services/auth'
 import { GUEST_EMAIL, GUEST_PASSWORD } from '../../shared/constants'
 import styles from './LoginGuestUser.module.css'
@@ -24,13 +25,15 @@ export const LoginGuestUser = () => {
 
     return (
         <div className={styles.guestUser}>
-            Use as
-            <span
+            <span className={styles.alternateLoginPrompt}>Or continue as</span>
+            <Button
                 className={styles.guestUserButton}
+                variant='outlined'
+                block={true}
                 onClick={loginGuestUser}
             >
-                guest
-            </span>
+                Guest User
+            </Button>
         </div>   
     )
 }

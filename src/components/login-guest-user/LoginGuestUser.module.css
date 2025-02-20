@@ -1,16 +1,28 @@
 .guestUser {
     box-sizing: border-box;
     margin: 0px;
-    padding: 0px;
+    padding: 16px 0px;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 16px;
+}
+
+.alternateLoginPrompt {
+    color: var(--text-color);
+    opacity: 0.5;
+    font-size: 14px;
 }
 
 .guestUserButton {
-    color: var(--secondary-color);
-    text-decoration: underline;
-    cursor: pointer;
+    background: var(--content-background-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.guestUserButton:hover {
+    border: 1px solid var(--primary-color) !important;
 }
