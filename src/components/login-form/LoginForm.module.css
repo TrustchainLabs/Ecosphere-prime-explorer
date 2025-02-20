@@ -33,6 +33,11 @@
 .loginForm {
     box-sizing: border-box;
     margin: 0px;
+    margin-top: 40px;
     padding: 0px;
     width: 100%;
+}
+
+.submitButtonItem {
+    margin-top: 40px;
 }

@@ -104,7 +104,7 @@ export const LoginForm = () => {
                         >
                             <Input.Password />
                         </Form.Item>
-                        <Form.Item>
+                        <Form.Item className={styles.submitButtonItem}>
                             <Button
                                 block={true}
                                 type='primary'
